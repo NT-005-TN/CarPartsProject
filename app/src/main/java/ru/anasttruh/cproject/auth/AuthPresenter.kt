@@ -40,8 +40,8 @@ class AuthPresenter(
     }
 
     private fun saveLoginData(email: String, password: String) {
-        if ((view as? AuthActivity)?.binding.checkBox?.isChecked == true) {
-            val prefs = (view as AuthActivity).getSharedPreferences("auth_prefs", AppCompatActivity.MODE_PRIVATE)
+        if ((view as? AuthActivity)?.binding?.checkBox?.isChecked == true) {
+            val prefs = view.getSharedPreferences("auth_prefs", AppCompatActivity.MODE_PRIVATE)
             prefs.edit {
                 putString("email", email)
                     .putString("password", password)
