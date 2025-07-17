@@ -1,16 +1,17 @@
-#### Проект с MVP архитектурой приложения 
+# Проект с MVP архитектурой приложения 
 
 Используются Firebase, Room, Hilt, Coroutines, XML
 
 Для подключения части интсрументов необходимо также ksp
 
 
-### Трудности в подключении необходимого стека
+## Трудности в подключении необходимого стека
 
-## Не подзодит версия ksp
-## Не верный синтаксис ввода
+### Не подходит версия ksp
+### Не верный синтаксис ввода
+### Не так версия Java в терминале, хотя на Android Studio JDK 11+ 
 
-# Как правильно подключть все необходимое
+#### Как правильно подключить
 
 В Module: app
 ~~~
@@ -46,7 +47,8 @@ dependencies {
     // FireBase
     implementation("com.google.firebase:firebase-analytics")
     implementation(platform("com.google.firebase:firebase-bom:33.16.0"))
-
+    implementation("com.google.android.gms:play-services-auth:20.7.0")
+    
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2")
 
@@ -81,12 +83,27 @@ plugins {
     id("com.google.dagger.hilt.android") version "2.56.2" apply false
 }
 
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("com.google.gms:google-services:4.4.3")
+    }
+}
+
 ~~~
 
+Важно!!
 
-### Проблемы с FireBase - получение SHA-1
+При подключении ksp учитывайте персию котлин. Так для моей версии kotlin-2.0.21 рекомендованная Android Studio версия ksp 2.2.0-2.0.2 не подходит.
 
-## Как изменить в Android Studio версию Java с 8 до 11 и выше? 
+Для kotlin-2.0.21 нужна версия 2.0.21-1.0.27 ksp.
+
+## Проблемы с FireBase - получение SHA-1
+
+### Как изменить в Android Studio версию Java с 8 до 11 и выше? 
 Было трудно определить что же не нравилось терминалу при попытке сгенерировать SHA-1 для полноценной авторизации через Google
 
 Терминал каждый раз писал:
