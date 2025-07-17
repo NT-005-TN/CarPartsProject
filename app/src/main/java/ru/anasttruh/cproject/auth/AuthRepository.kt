@@ -1,7 +1,6 @@
 package ru.anasttruh.cproject.auth
 
 import com.google.firebase.auth.FirebaseAuth
-import org.checkerframework.checker.units.qual.UnitsMultiple
 
 class AuthRepository {
     private val auth: FirebaseAuth = FirebaseAuth.getInstance()

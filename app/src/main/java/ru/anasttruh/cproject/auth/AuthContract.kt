@@ -1,4 +1,4 @@
-package ru.anasttruh.cproject.authpackage
+package ru.anasttruh.cproject.auth
 
 interface AuthContract {
 

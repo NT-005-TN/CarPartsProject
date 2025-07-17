@@ -1,7 +1,7 @@
 package ru.anasttruh.cproject.auth
 
 import androidx.appcompat.app.AppCompatActivity
-import ru.anasttruh.cproject.authpackage.AuthContract
+import androidx.core.content.edit
 
 class AuthPresenter(
     private val view: AuthContract.View,
@@ -40,18 +40,18 @@ class AuthPresenter(
     }
 
     private fun saveLoginData(email: String, password: String) {
-        if ((view as? AuthActivity)?.binding?.checkBox?.isChecked == true) {
+        if ((view as? AuthActivity)?.binding.checkBox?.isChecked == true) {
             val prefs = (view as AuthActivity).getSharedPreferences("auth_prefs", AppCompatActivity.MODE_PRIVATE)
-            prefs.edit()
-                .putString("email", email)
-                .putString("password", password)
-                .putBoolean("remember", true)
-                .apply()
+            prefs.edit {
+                putString("email", email)
+                    .putString("password", password)
+                    .putBoolean("remember", true)
+            }
         } else {
             val prefs = (view as AuthActivity).getSharedPreferences("auth_prefs", AppCompatActivity.MODE_PRIVATE)
-            prefs.edit()
-                .clear()
-                .apply()
+            prefs.edit {
+                clear()
+            }
         }
     }
 
