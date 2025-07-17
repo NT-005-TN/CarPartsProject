@@ -83,6 +83,16 @@ plugins {
     id("com.google.dagger.hilt.android") version "2.56.2" apply false
 }
 
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("com.google.gms:google-services:4.4.3")
+    }
+}
+
 ~~~
 
 
