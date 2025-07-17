@@ -47,7 +47,8 @@ dependencies {
     // FireBase
     implementation("com.google.firebase:firebase-analytics")
     implementation(platform("com.google.firebase:firebase-bom:33.16.0"))
-
+    implementation("com.google.android.gms:play-services-auth:20.7.0")
+    
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2")
 
