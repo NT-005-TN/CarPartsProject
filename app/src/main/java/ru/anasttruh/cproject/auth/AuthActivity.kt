@@ -42,7 +42,7 @@ class AuthActivity : AppCompatActivity(), AuthContract.View {
         binding = ActivityAuthBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        presenter = AuthPresenter(this, AuthRepository()) // ← теперь всё правильно
+        presenter = AuthPresenter(this, AuthRepository())
 
         binding.authButton.setOnClickListener {
             val email = binding.editTextEmailAddress.text.toString()
