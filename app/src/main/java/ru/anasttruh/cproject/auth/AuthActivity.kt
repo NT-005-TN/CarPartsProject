@@ -11,7 +11,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
-import ru.anasttruh.cproject.car.CarListActivity
+import ru.anasttruh.cproject.car.addCar.CarListActivity
 import ru.anasttruh.cproject.databinding.ActivityAuthBinding
 
 class AuthActivity : AppCompatActivity(), AuthContract.View {

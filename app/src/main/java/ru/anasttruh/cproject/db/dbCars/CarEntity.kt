@@ -1,4 +1,4 @@
-package ru.anasttruh.cproject.car
+package ru.anasttruh.cproject.db.dbCars
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

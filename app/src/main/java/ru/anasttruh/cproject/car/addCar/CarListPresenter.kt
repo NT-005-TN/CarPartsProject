@@ -1,9 +1,10 @@
-package ru.anasttruh.cproject.car
+package ru.anasttruh.cproject.car.addCar
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import ru.anasttruh.cproject.db.dbCars.CarEntity
 
 class CarListPresenter(
     private val view: CarListContract.View,
@@ -20,6 +21,18 @@ class CarListPresenter(
                 view.showCars(cars)
             } catch (e: Exception) {
                 view.showError("Ошибка при загрузке машин: ${e.message}")
+            }
+        }
+    }
+
+    override fun deleteCar(car: CarEntity) {
+        scope.launch {
+            try {
+                repository.deleteCar(car)
+                loadCars()
+                view.showMessage("Машина удалена")
+            } catch (e: Exception) {
+                view.showError("Ошибка при удалении: ${e.message}")
             }
         }
     }

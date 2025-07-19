@@ -1,4 +1,7 @@
-package ru.anasttruh.cproject.car
+package ru.anasttruh.cproject.car.addCar
+
+import ru.anasttruh.cproject.db.dbCars.CarDao
+import ru.anasttruh.cproject.db.dbCars.CarEntity
 
 class CarRepository(private val carDao: CarDao) {
     suspend fun getAllCars() = carDao.getAllCars()
