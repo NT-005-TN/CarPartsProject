@@ -1,0 +1,55 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/editPartName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Название детали" />
+
+        <Spinner
+            android:id="@+id/spinnerSystem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/editMileageAtInstall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Пробег при установке"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/editDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Дата установки"
+            android:focusable="false" />
+
+        <ImageView
+            android:id="@+id/imagePartPhoto"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/btnSelectPhoto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Выбрать фото" />
+
+        <Button
+            android:id="@+id/btnSavePart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Сохранить" />
+    </LinearLayout>
+</ScrollView>

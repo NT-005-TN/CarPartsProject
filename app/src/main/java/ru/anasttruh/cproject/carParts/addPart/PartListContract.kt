@@ -11,5 +11,6 @@ interface PartListContract {
     interface Presenter {
         fun loadParts(carId: Int)
         fun deletePart(part: PartEntity)
+        fun onSavePart(part: PartEntity)
     }
 }

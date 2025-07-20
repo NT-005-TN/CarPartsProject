@@ -21,4 +21,7 @@ interface PartDao {
 
     @Delete
     suspend fun delete(part: PartEntity)
+
+    @Query("SELECT * FROM parts WHERE id = :id")
+    suspend fun getPartById(id: Int): PartEntity?
 }
