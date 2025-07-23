@@ -1,66 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/cardView"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rootItemCar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="4dp">
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:background="?attr/selectableItemBackground" >
 
-    <RelativeLayout
+    <!-- Название машины -->
+    <TextView
+        android:id="@+id/textName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:text="Название машины"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#000000"/>
 
-        <!-- Название машины -->
-        <TextView
-            android:id="@+id/textName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Название"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+    <!-- Марка машины -->
+    <TextView
+        android:id="@+id/textBrand"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Марка"
+        android:textSize="14sp"
+        android:textColor="#555555"
+        android:layout_marginTop="4dp"/>
 
-        <!-- Марка -->
-        <TextView
-            android:id="@+id/textBrand"
-            android:layout_below="@id/textName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Марка"
-            android:textSize="14sp" />
+    <!-- Пробег -->
+    <TextView
+        android:id="@+id/textMileage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Пробег: 0 км"
+        android:textSize="14sp"
+        android:textColor="#555555"
+        android:layout_marginTop="4dp"/>
 
-        <!-- Пробег -->
-        <TextView
-            android:id="@+id/textMileage"
-            android:layout_below="@id/textBrand"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Пробег"
-            android:textSize="14sp" />
+    <!-- Горизонтальная панель с кнопками -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp"
+        android:gravity="end">
 
-        <!-- Кнопка удаления -->
-
-        <ImageButton
+        <Button
             android:id="@+id/btnDetails"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignParentTop="true"
-            android:layout_toStartOf="@+id/btnDelete"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:contentDescription="Детали машины"
-            android:src="@android:drawable/ic_menu_info_details" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Детали"
+            android:layout_marginEnd="8dp"/>
 
-        <ImageButton
+        <Button
             android:id="@+id/btnDelete"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:background="?attr/selectableItemBackgroundBorderless"
-            android:src="@android:drawable/ic_delete"
-            android:contentDescription="Удалить"
-            android:hint="@android:color/holo_red_dark"/>
-    </RelativeLayout>
-</androidx.cardview.widget.CardView>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Удалить"
+            android:textColor="#FF0000"/>
+    </LinearLayout>
+
+</LinearLayout>

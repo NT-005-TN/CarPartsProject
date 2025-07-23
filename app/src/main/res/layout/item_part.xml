@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textViewName"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Название детали" />
+
+    <TextView
+        android:id="@+id/textViewWear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Износ: 0%" />
+
+    <TextView
+        android:id="@+id/textViewCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Кол-во: 1" />
+
+    <TextView
+        android:id="@+id/textViewInstallDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Установлена: 2025-01-01" />
+
+    <TextView
+        android:id="@+id/textViewMileage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Пробег при установке: 0 км" />
+
+    <Button
+        android:id="@+id/buttonDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Удалить"
+        android:layout_marginTop="4dp"/>
+</LinearLayout>

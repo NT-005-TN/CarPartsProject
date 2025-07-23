@@ -4,12 +4,15 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import ru.anasttruh.cproject.db.dbCarParts.PartDao
 import ru.anasttruh.cproject.db.dbCars.CarDao
 import ru.anasttruh.cproject.db.dbCars.CarEntity
+import ru.anasttruh.cproject.db.dbCarParts.PartEntity
 
-@Database(entities = [CarEntity::class], version = 1)
+@Database(entities = [CarEntity::class, PartEntity::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun carDao(): CarDao
+    abstract fun partDao(): PartDao
     companion object {
         @Volatile private var INSTANCE: AppDatabase? = null
 
