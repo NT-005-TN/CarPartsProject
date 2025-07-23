@@ -2,35 +2,47 @@ package ru.anasttruh.cproject.carParts.addPart
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import ru.anasttruh.cproject.db.AppDatabase
 import ru.anasttruh.cproject.db.dbCarParts.PartEntity
 
 class PartListPresenter(
     private val view: PartListContract.View,
     private val repository: PartRepository
-): PartListContract.Presenter {
+) : PartListContract.Presenter {
+
+    private val job = SupervisorJob()
+    private val scope = CoroutineScope(Dispatchers.Main + job)
 
     override fun loadParts(carId: Int) {
-        CoroutineScope(Dispatchers.IO).launch {
+        scope.launch {
             try {
-                val parts = repository.getPartsForCar(carId)
-                withContext(Dispatchers.Main) {
-                    view.showParts(parts)
+                val parts = withContext(Dispatchers.IO) {
+                    repository.getPartsByCarId(carId)
                 }
+                view.showParts(parts)
             } catch (e: Exception) {
-                withContext(Dispatchers.Main) {
-                    view.showError("Ошибка загрузки: ${e.message}")
-                }
+                view.showMessage("Ошибка загрузки деталей: ${e.message}")
             }
         }
     }
 
     override fun deletePart(part: PartEntity) {
-        CoroutineScope(Dispatchers.IO).launch {
-            repository.deletePart(part)
-            loadParts(part.carId)
-
+        scope.launch {
+            try {
+                withContext(Dispatchers.IO) { repository.deletePart(part) }
+                loadParts(part.carId)
+                view.showMessage("Деталь удалена")
+            } catch (e: Exception) {
+                view.showMessage("Ошибка удаления: ${e.message}")
+            }
         }
+    }
+
+    override fun onDestroy() {
+        job.cancel()
     }
 }

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Добавить / Редактировать деталь"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="12dp" />
+
+        <EditText
+            android:id="@+id/etPartName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Название детали" />
+
+        <EditText
+            android:id="@+id/etInstallDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Дата установки (гггг-мм-дд)" />
+
+        <EditText
+            android:id="@+id/etMileageOnInstall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Пробег на момент установки" />
+
+        <EditText
+            android:id="@+id/etWearLimit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Предел износа (км)" />
+
+        <Button
+            android:id="@+id/btnSavePart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Сохранить" />
+    </LinearLayout>
+</ScrollView>

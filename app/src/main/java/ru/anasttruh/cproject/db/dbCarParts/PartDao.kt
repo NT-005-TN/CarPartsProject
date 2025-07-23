@@ -13,15 +13,15 @@ interface PartDao {
     @Query("SELECT * FROM Parts WHERE carId = :carId")
     suspend fun getPartsByCarId(carId: Int): List<PartEntity>
 
-    @Insert(onConflict = OnConflictStrategy.Companion.REPLACE)
-    suspend fun insert(part: PartEntity)
+    @Query("SELECT * FROM Parts WHERE id = :id")
+    suspend fun getPartById(id: Int): PartEntity?
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertPart(part: PartEntity)
 
     @Update
-    suspend fun update(part: PartEntity)
+    suspend fun updatePart(part: PartEntity)
 
     @Delete
-    suspend fun delete(part: PartEntity)
-
-    @Query("SELECT * FROM parts WHERE id = :id")
-    suspend fun getPartById(id: Int): PartEntity?
+    suspend fun deletePart(part: PartEntity)
 }
